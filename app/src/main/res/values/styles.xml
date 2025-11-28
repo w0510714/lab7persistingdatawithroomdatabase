@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Custom_Button_Theme"
+        parent="android:Widget.Button">
+        <item name="cornerRadius">@dimen/button_corner_radius</item>
+        <item name="backgroundTint">@color/tea_green</item>
+        <item name="elevation">@dimen/button_elevation</item>
+        <item name="android:textColor">@color/payne_gray</item>
+    </style>
+</resources>

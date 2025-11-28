@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">lab6-Retrofit-and-Networking-Requests</string>
+    <string name="app_title">Weather App</string>
+    <string name="weather_title">Weather Prediction</string>
+    <string name="enter_name">Enter Name: </string>
+    <string name="enter_name_hint">Sean</string>
+    <string name="predict_button_label">Predict</string>
+    <string name="future_prediction">I predict…</string>
+    <string name="historical_predictions">Historical Predictions</string>
+    <string name="prediction_title">Prediction</string>
+    <string name="finish_button_label">Finish</string>
+    <string name="latest_predictions">Latest Prediction</string>
+    <string name="weather_icon_description">An icon representing the current weather</string>
+</resources>

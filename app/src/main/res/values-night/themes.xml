@@ -1,0 +1,14 @@
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingDefaultResource">
+    <style name="Theme.Custom.Primary" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/hunter_green</item>
+        <item name="colorPrimaryVariant">@color/payne_gray</item>
+        <item name="colorOnPrimary">@color/maize</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/yellow_green</item>
+        <item name="colorSecondaryVariant">@color/tea_green</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+    </style>
+</resources>
