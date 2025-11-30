@@ -16,6 +16,7 @@ import com.example.lab7_persisting_data_with_room_database.api.WeatherRetrofitAp
 import com.example.lab7_persisting_data_with_room_database.persistence.AppDatabase
 import com.example.lab7_persisting_data_with_room_database.persistence.entities.EntityModelConverter
 import kotlinx.coroutines.launch
+import retrofit2.HttpException
 
 class PredictionActivity : AppCompatActivity() {
 
@@ -74,10 +75,22 @@ class PredictionActivity : AppCompatActivity() {
                 val windSpeed = forecastResponse.current.windKph
                 val windDir = forecastResponse.current.windDir
 
-                val weatherMessage = "In $location, the temperature is ${temp}°C, with winds from the $windDir at $windSpeed km/h. \n\nData saved to database."
+                val weatherMessage = "In $location, the temperature is ${temp}°C, with winds from the $windDir at $windSpeed km/h. Data saved to database."
                 weatherMessageTextView.text = weatherMessage
 
-            } catch (e: Exception) {
+            } catch (e: HttpException) {
+                if (e.code() == 400) {
+                    weatherMessageTextView.text = "That location does not exist. Please try again."
+                } else {
+                    weatherMessageTextView.text = "Error loading weather data."
+                    Toast.makeText(
+                        this@PredictionActivity,
+                        "Error loading or saving weather data: ${e.message()}",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            }
+            catch (e: Exception) {
                 weatherMessageTextView.text = "Error loading weather data."
                 Toast.makeText(
                     this@PredictionActivity,
