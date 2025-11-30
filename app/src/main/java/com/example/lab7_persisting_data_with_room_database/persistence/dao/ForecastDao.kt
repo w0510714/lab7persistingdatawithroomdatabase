@@ -10,6 +10,9 @@ interface ForecastDao {
     @Insert
     suspend fun insert(forecast: ForecastResponse)
 
-    @Query("SELECT * FROM forecasts")
+    @Query("SELECT * FROM forecasts ORDER BY id DESC LIMIT 1")
+    suspend fun getLatest(): ForecastResponse?
+
+    @Query("SELECT * FROM forecasts ORDER BY id DESC")
     suspend fun getAll(): List<ForecastResponse>
 }

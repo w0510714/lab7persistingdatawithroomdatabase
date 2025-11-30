@@ -9,7 +9,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/layout_padding">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -66,6 +67,37 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/activity_main_title_enter_name" />
 
+        <TextView
+            android:id="@+id/activity_main_title_enter_location"
+            android:layout_width="@dimen/zero_margin"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin_top"
+            android:gravity="start"
+            android:paddingStart="@dimen/layout_padding"
+            android:paddingEnd="@dimen/layout_padding"
+            android:text="@string/enter_location"
+            android:textColor="@color/hunter_green"
+            android:textSize="@dimen/subtitle_text_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activity_main_enter_name" />
+
+        <EditText
+            android:id="@+id/activity_main_enter_location"
+            android:layout_width="@dimen/zero_margin"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/layout_padding"
+            android:layout_marginTop="@dimen/enter_name_edittext_margin_top"
+            android:layout_marginEnd="@dimen/layout_padding"
+            android:autofillHints="Halifax"
+            android:hint="@string/enter_location_hint"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activity_main_title_enter_location" />
+
         <Button
             android:id="@+id/activity_main_predict_button"
             style="@style/Custom_Button_Theme"
@@ -76,7 +108,23 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/activity_main_enter_name" />
+            app:layout_constraintTop_toBottomOf="@+id/activity_main_enter_location" />
+
+        <TextView
+            android:id="@+id/forecast_details_textview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin_top"
+            android:gravity="start"
+            android:lineSpacingExtra="4dp"
+            android:textColor="@color/hunter_green"
+            android:textSize="@dimen/subtitle_text_size"
+            android:paddingStart="@dimen/layout_padding"
+            android:paddingEnd="@dimen/layout_padding"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activity_main_predict_button"
+            tools:text="@string/location_preset"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

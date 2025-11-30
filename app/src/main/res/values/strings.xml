@@ -12,4 +12,7 @@
     <string name="finish_button_label">Finish</string>
     <string name="latest_predictions">Latest Prediction</string>
     <string name="weather_icon_description">An icon representing the current weather</string>
+    <string name="enter_location">Enter Location:</string>
+    <string name="enter_location_hint">Halifax</string>
+    <string name="location_preset">Location: Toronto, ON, Canada\nTemperature: 25°C / 77°F\nWind: 15 kph from the SW\nLast updated: 2023-10-27 10:00\n\n---\n\nLocation: Halifax, NS, Canada\nTemperature: 15°C / 59°F\nWind: 25 kph from the E\nLast updated: 2023-10-26 14:00</string>
 </resources>

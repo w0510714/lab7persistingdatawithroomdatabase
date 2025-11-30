@@ -11,9 +11,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.lifecycle.lifecycleScope
 import com.example.lab7_persisting_data_with_room_database.api.WeatherRetrofitApi
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
+import com.example.lab7_persisting_data_with_room_database.persistence.AppDatabase
+import com.example.lab7_persisting_data_with_room_database.persistence.entities.EntityModelConverter
 import kotlinx.coroutines.launch
 
 class PredictionActivity : AppCompatActivity() {
@@ -23,13 +24,14 @@ class PredictionActivity : AppCompatActivity() {
     private lateinit var progressBar: ProgressBar
     private lateinit var finishButton: Button
     private val api = WeatherRetrofitApi()
+    private val converter = EntityModelConverter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.prediction_activity)
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
-                setSupportActionBar(toolbar)
+        setSupportActionBar(toolbar)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
@@ -40,40 +42,49 @@ class PredictionActivity : AppCompatActivity() {
         finishButton = findViewById(R.id.prediction_activity_finish_button)
 
         val name = intent.getStringExtra(EXTRA_NAME)
+        val location = intent.getStringExtra(EXTRA_LOCATION)
+
         subheadingTextView.text = if (!name.isNullOrEmpty()) "$name, I predict..." else "I predict..."
 
-        loadWeatherData()
+        if (!location.isNullOrEmpty()) {
+            loadWeatherDataAndSave(location)
+        } else {
+            weatherMessageTextView.text = "No location provided."
+            progressBar.visibility = View.GONE
+            finishButton.isEnabled = true
+        }
 
         finishButton.setOnClickListener {
+            setResult(RESULT_OK)
             finish()
         }
     }
 
-    private fun loadWeatherData() {
-        // Show progress bar and disable button
+    private fun loadWeatherDataAndSave(location: String) {
         progressBar.visibility = View.VISIBLE
         finishButton.isEnabled = false
 
-        CoroutineScope(Dispatchers.Main).launch {
+        lifecycleScope.launch {
             try {
-                val forecastResponse = api.getForecast("Halifax", 1)
-                val location = forecastResponse.location.name
+                val forecastResponse = api.getForecast(location, 1)
+                val forecastEntity = converter.toEntity(forecastResponse)
+                AppDatabase.getDatabase(this@PredictionActivity).forecastDao().insert(forecastEntity)
+
                 val temp = forecastResponse.current.tempC
                 val windSpeed = forecastResponse.current.windKph
                 val windDir = forecastResponse.current.windDir
 
-                val weatherMessage = "In $location, the temperature is ${temp}°C, with winds from the $windDir at $windSpeed km/h."
+                val weatherMessage = "In $location, the temperature is ${temp}°C, with winds from the $windDir at $windSpeed km/h. \n\nData saved to database."
                 weatherMessageTextView.text = weatherMessage
 
             } catch (e: Exception) {
                 weatherMessageTextView.text = "Error loading weather data."
                 Toast.makeText(
-                        this@PredictionActivity,
-                "Error loading weather data: ${e.message}",
-                        Toast.LENGTH_LONG
+                    this@PredictionActivity,
+                    "Error loading or saving weather data: ${e.message}",
+                    Toast.LENGTH_LONG
                 ).show()
             } finally {
-                // Hide progress bar and re-enable button
                 progressBar.visibility = View.GONE
                 finishButton.isEnabled = true
             }
@@ -83,6 +94,7 @@ class PredictionActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
+                setResult(RESULT_OK)
                 finish()
                 true
             }
@@ -91,11 +103,13 @@ class PredictionActivity : AppCompatActivity() {
     }
 
     companion object {
-        private const val EXTRA_NAME = "com.example.lab5_multi_screen_applications.EXTRA_NAME"
+        private const val EXTRA_NAME = "com.example.lab7_persisting_data_with_room_database.EXTRA_NAME"
+        private const val EXTRA_LOCATION = "com.example.lab7_persisting_data_with_room_database.EXTRA_LOCATION"
 
-        fun newIntent(context: Context, name: String?): Intent {
+        fun newIntent(context: Context, name: String?, location: String?): Intent {
             return Intent(context, PredictionActivity::class.java).apply {
                 putExtra(EXTRA_NAME, name)
+                putExtra(EXTRA_LOCATION, location)
             }
         }
     }
