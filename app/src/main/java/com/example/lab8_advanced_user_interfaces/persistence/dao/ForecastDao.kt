@@ -1,9 +1,9 @@
-package com.example.lab7_persisting_data_with_room_database.persistence.dao
+package com.example.lab8_advanced_user_interfaces.persistence.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import com.example.lab7_persisting_data_with_room_database.persistence.entities.ForecastResponse
+import com.example.lab8_advanced_user_interfaces.persistence.entities.ForecastResponse
 
 @Dao
 interface ForecastDao {

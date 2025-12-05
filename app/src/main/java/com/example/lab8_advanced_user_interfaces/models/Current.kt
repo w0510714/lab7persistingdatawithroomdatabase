@@ -1,4 +1,4 @@
-package com.example.lab7_persisting_data_with_room_database.models
+package com.example.lab8_advanced_user_interfaces.models
 
 import com.google.gson.annotations.SerializedName
 

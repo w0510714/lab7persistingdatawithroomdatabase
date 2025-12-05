@@ -1,11 +1,11 @@
-package com.example.lab7_persisting_data_with_room_database.persistence
+package com.example.lab8_advanced_user_interfaces.persistence
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.lab7_persisting_data_with_room_database.persistence.dao.ForecastDao
-import com.example.lab7_persisting_data_with_room_database.persistence.entities.ForecastResponse
+import com.example.lab8_advanced_user_interfaces.persistence.dao.ForecastDao
+import com.example.lab8_advanced_user_interfaces.persistence.entities.ForecastResponse
 
 @Database(entities = [ForecastResponse::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {

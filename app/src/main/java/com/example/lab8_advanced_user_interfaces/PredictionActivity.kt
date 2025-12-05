@@ -1,4 +1,4 @@
-package com.example.lab7_persisting_data_with_room_database
+package com.example.lab8_advanced_user_interfaces
 
 import android.content.Context
 import android.content.Intent
@@ -12,9 +12,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.lifecycleScope
-import com.example.lab7_persisting_data_with_room_database.api.WeatherRetrofitApi
-import com.example.lab7_persisting_data_with_room_database.persistence.AppDatabase
-import com.example.lab7_persisting_data_with_room_database.persistence.entities.EntityModelConverter
+import com.example.lab8_advanced_user_interfaces.api.WeatherRetrofitApi
+import com.example.lab8_advanced_user_interfaces.persistence.AppDatabase
+import com.example.lab8_advanced_user_interfaces.persistence.entities.EntityModelConverter
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 
@@ -116,8 +116,8 @@ class PredictionActivity : AppCompatActivity() {
     }
 
     companion object {
-        private const val EXTRA_NAME = "com.example.lab7_persisting_data_with_room_database.EXTRA_NAME"
-        private const val EXTRA_LOCATION = "com.example.lab7_persisting_data_with_room_database.EXTRA_LOCATION"
+        private const val EXTRA_NAME = "com.example.lab8_advanced_user_interfaces.EXTRA_NAME"
+        private const val EXTRA_LOCATION = "com.example.lab8_advanced_user_interfaces.EXTRA_LOCATION"
 
         fun newIntent(context: Context, name: String?, location: String?): Intent {
             return Intent(context, PredictionActivity::class.java).apply {

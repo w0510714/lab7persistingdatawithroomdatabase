@@ -1,4 +1,4 @@
-package com.example.lab7_persisting_data_with_room_database
+package com.example.lab8_advanced_user_interfaces
 
 import android.os.Bundle
 import android.widget.Button
@@ -7,9 +7,9 @@ import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.example.lab7_persisting_data_with_room_database.models.ForecastResponse
-import com.example.lab7_persisting_data_with_room_database.persistence.AppDatabase
-import com.example.lab7_persisting_data_with_room_database.persistence.entities.EntityModelConverter
+import com.example.lab8_advanced_user_interfaces.models.ForecastResponse
+import com.example.lab8_advanced_user_interfaces.persistence.AppDatabase
+import com.example.lab8_advanced_user_interfaces.persistence.entities.EntityModelConverter
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {

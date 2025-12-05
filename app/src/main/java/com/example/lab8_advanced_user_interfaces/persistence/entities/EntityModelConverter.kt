@@ -1,11 +1,11 @@
-package com.example.lab7_persisting_data_with_room_database.persistence.entities
+package com.example.lab8_advanced_user_interfaces.persistence.entities
 
-import com.example.lab7_persisting_data_with_room_database.models.ForecastResponse as ForecastResponseModel
-import com.example.lab7_persisting_data_with_room_database.persistence.entities.ForecastResponse as ForecastResponseEntity
-import com.example.lab7_persisting_data_with_room_database.models.Location as LocationModel
-import com.example.lab7_persisting_data_with_room_database.persistence.entities.Location as LocationEntity
-import com.example.lab7_persisting_data_with_room_database.models.Current as CurrentModel
-import com.example.lab7_persisting_data_with_room_database.persistence.entities.Current as CurrentEntity
+import com.example.lab8_advanced_user_interfaces.models.ForecastResponse as ForecastResponseModel
+import com.example.lab8_advanced_user_interfaces.persistence.entities.ForecastResponse as ForecastResponseEntity
+import com.example.lab8_advanced_user_interfaces.models.Location as LocationModel
+import com.example.lab8_advanced_user_interfaces.persistence.entities.Location as LocationEntity
+import com.example.lab8_advanced_user_interfaces.models.Current as CurrentModel
+import com.example.lab8_advanced_user_interfaces.persistence.entities.Current as CurrentEntity
 
 class EntityModelConverter {
     fun toEntity(model: ForecastResponseModel): ForecastResponseEntity {

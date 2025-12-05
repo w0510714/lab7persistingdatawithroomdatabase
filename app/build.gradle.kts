@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.lab7_persisting_data_with_room_database"
+    namespace = "com.example.lab8_advanced_user_interfaces"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.lab7_persisting_data_with_room_database"
+        applicationId = "com.example.lab8_advanced_user_interfaces"
         minSdk = 29
         targetSdk = 36
         versionCode = 1

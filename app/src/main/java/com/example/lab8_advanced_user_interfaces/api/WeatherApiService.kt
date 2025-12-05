@@ -1,6 +1,6 @@
-package com.example.lab7_persisting_data_with_room_database.api
+package com.example.lab8_advanced_user_interfaces.api
 
-import com.example.lab7_persisting_data_with_room_database.models.ForecastResponse
+import com.example.lab8_advanced_user_interfaces.models.ForecastResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 

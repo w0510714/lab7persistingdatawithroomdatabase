@@ -1,4 +1,4 @@
-package com.example.lab7_persisting_data_with_room_database
+package com.example.lab8_advanced_user_interfaces
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.example.lab7_persisting_data_with_room_database", appContext.packageName)
+        assertEquals("com.example.lab8_advanced_user_interfaces", appContext.packageName)
     }
 }

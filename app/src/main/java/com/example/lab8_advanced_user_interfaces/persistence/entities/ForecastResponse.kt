@@ -1,4 +1,4 @@
-package com.example.lab7_persisting_data_with_room_database.persistence.entities
+package com.example.lab8_advanced_user_interfaces.persistence.entities
 
 import androidx.room.Embedded
 import androidx.room.Entity
