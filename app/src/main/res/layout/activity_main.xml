@@ -1,130 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:padding="16dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/weather_prediction_header"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/layout_padding">
+        android:text="Weather Prediction"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp"/>
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:title="@string/app_title"
-            app:titleTextColor="@android:color/white"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/enter_city_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter city"
+        app:layout_constraintTop_toBottomOf="@id/weather_prediction_header"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="32dp"/>
 
-        <TextView
-            android:id="@+id/title_textview"
-            android:layout_width="@dimen/zero_margin"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/title_margin_top"
-            android:gravity="center"
-            android:text="@string/weather_title"
-            android:textColor="@color/hunter_green"
-            android:textSize="@dimen/title_text_size"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+    <EditText
+        android:id="@+id/city_edittext"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter city here"
+        app:layout_constraintTop_toBottomOf="@id/enter_city_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
 
-        <TextView
-            android:id="@+id/activity_main_title_enter_name"
-            android:layout_width="@dimen/zero_margin"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/enter_name_title_margin_top"
-            android:gravity="start"
-            android:paddingStart="@dimen/layout_padding"
-            android:paddingEnd="@dimen/layout_padding"
-            android:text="@string/enter_name"
-            android:textColor="@color/hunter_green"
-            android:textSize="@dimen/subtitle_text_size"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title_textview" />
+    <Button
+        android:id="@+id/predict_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Predict"
+        app:layout_constraintTop_toBottomOf="@id/city_edittext"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:visibility="gone"
+        tools:visibility="visible"/>
 
-        <EditText
-            android:id="@+id/activity_main_enter_name"
-            android:layout_width="@dimen/zero_margin"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/layout_padding"
-            android:layout_marginTop="@dimen/enter_name_edittext_margin_top"
-            android:layout_marginEnd="@dimen/layout_padding"
-            android:autofillHints="Sean"
-            android:hint="@string/enter_name_hint"
-            android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/activity_main_title_enter_name" />
-
-        <TextView
-            android:id="@+id/activity_main_title_enter_location"
-            android:layout_width="@dimen/zero_margin"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/small_margin_top"
-            android:gravity="start"
-            android:paddingStart="@dimen/layout_padding"
-            android:paddingEnd="@dimen/layout_padding"
-            android:text="@string/enter_location"
-            android:textColor="@color/hunter_green"
-            android:textSize="@dimen/subtitle_text_size"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/activity_main_enter_name" />
-
-        <EditText
-            android:id="@+id/activity_main_enter_location"
-            android:layout_width="@dimen/zero_margin"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/layout_padding"
-            android:layout_marginTop="@dimen/enter_name_edittext_margin_top"
-            android:layout_marginEnd="@dimen/layout_padding"
-            android:autofillHints="Halifax"
-            android:hint="@string/enter_location_hint"
-            android:inputType="text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/activity_main_title_enter_location" />
-
-        <Button
-            android:id="@+id/activity_main_predict_button"
-            style="@style/Custom_Button_Theme"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/small_margin_top"
-            android:text="@string/predict_button_label"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/activity_main_enter_location" />
-
-        <TextView
-            android:id="@+id/forecast_details_textview"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/small_margin_top"
-            android:gravity="start"
-            android:lineSpacingExtra="4dp"
-            android:textColor="@color/hunter_green"
-            android:textSize="@dimen/subtitle_text_size"
-            android:paddingStart="@dimen/layout_padding"
-            android:paddingEnd="@dimen/layout_padding"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/activity_main_predict_button"
-            tools:text="@string/location_preset"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
