@@ -15,13 +15,6 @@ class EntityModelConverter {
         )
     }
 
-    fun toModel(entity: ForecastResponseEntity): ForecastResponseModel {
-        return ForecastResponseModel(
-            location = toModel(entity.location),
-            current = toModel(entity.current)
-        )
-    }
-
     private fun toEntity(model: LocationModel): LocationEntity {
         return LocationEntity(
             name = model.name,
@@ -33,17 +26,6 @@ class EntityModelConverter {
         )
     }
 
-    private fun toModel(entity: LocationEntity): LocationModel {
-        return LocationModel(
-            name = entity.name,
-            region = entity.region,
-            country = entity.country,
-            lat = entity.lat,
-            lon = entity.lon,
-            localtime = entity.localtime
-        )
-    }
-
     private fun toEntity(model: CurrentModel): CurrentEntity {
         return CurrentEntity(
             lastUpdated = model.lastUpdated,
@@ -52,17 +34,6 @@ class EntityModelConverter {
             windMph = model.windMph,
             windKph = model.windKph,
             windDir = model.windDir
-        )
-    }
-
-    private fun toModel(entity: CurrentEntity): CurrentModel {
-        return CurrentModel(
-            lastUpdated = entity.lastUpdated,
-            tempC = entity.tempC,
-            tempF = entity.tempF,
-            windMph = entity.windMph,
-            windKph = entity.windKph,
-            windDir = entity.windDir
         )
     }
 }
