@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">lab6-Retrofit-and-Networking-Requests</string>
-    <string name="app_title">Weather App</string>
+    <string name="app_title">Weather Predictor</string>
     <string name="weather_title">Weather Predictor</string>
     <string name="enter_name">Enter Name: </string>
     <string name="enter_name_hint">Sean</string>

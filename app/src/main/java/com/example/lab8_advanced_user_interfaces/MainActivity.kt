@@ -41,9 +41,7 @@ class MainActivity : AppCompatActivity() {
 
         predictButton.setOnClickListener {
             val city = cityEditText.text.toString()
-            val intent = Intent(this, PredictionActivity::class.java).apply {
-                putExtra("EXTRA_LOCATION", city)
-            }
+            val intent = PredictionActivity.newIntent(this, city)
             startActivity(intent)
         }
     }
